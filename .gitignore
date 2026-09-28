@@ -1,0 +1,100 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+!installer/veyra.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Local / Machine-specific configurations and secrets
+*.local
+*.local.json
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key
+*.token
+.*_token
+.veyra_api_token
+config/.*_token
+
+# IDEs & Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs & Runtime storage
+*.log
+logs/
+*.sqlite
+*.sqlite3
+*.db
+run/
+
+# Scratch files
+scratch/
+
+# VEYRA BRANDING PROTECTION NOTICE:
+# Official branding assets under assets/branding/ MUST NEVER be ignored.
+!assets/branding/
+!assets/branding/**

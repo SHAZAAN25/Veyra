@@ -1,0 +1,53 @@
+{
+  "product": "VEYRA",
+  "version": "0.1.0",
+  "release_channel": "stable",
+  "architecture": "x64",
+  "hash_algorithm": "SHA-256",
+  "generated_by": "tools/generate_release_manifest.py",
+  "artifact_count": 7,
+  "artifacts": [
+    {
+      "name": "install.ps1",
+      "file_size_bytes": 5059,
+      "sha256": "69c169a279a33ae00b222138de9a5dae623ed6512765405ff3887d0f552161a1",
+      "artifact_type": "deployment_script"
+    },
+    {
+      "name": "uninstall.ps1",
+      "file_size_bytes": 2589,
+      "sha256": "d71b5498a36dd2e413e7a0c39941dee123f5a78396c452207ee65971fc422456",
+      "artifact_type": "deployment_script"
+    },
+    {
+      "name": "run_veyra.bat",
+      "file_size_bytes": 1057,
+      "sha256": "892975cad7c5ee2b80a031ccdb3b45ab3671885d43e4ced937fc557967ead25a",
+      "artifact_type": "deployment_script"
+    },
+    {
+      "name": "installer/installer.iss",
+      "file_size_bytes": 2426,
+      "sha256": "d34421a82dde272cc825da1122272ff12d75f955a928dc598b132fd1701d66ef",
+      "artifact_type": "installer_spec"
+    },
+    {
+      "name": "installer/AppxManifest.xml",
+      "file_size_bytes": 2160,
+      "sha256": "ada71236ddc154a9152f45a592034f369a17f4d31db5b985212e821291a40dd0",
+      "artifact_type": "installer_spec"
+    },
+    {
+      "name": "installer/veyra.spec",
+      "file_size_bytes": 2825,
+      "sha256": "ebd8cca6aae8b767b95f8a59604114e99055e72db1b39bd5e262eca568a5ab21",
+      "artifact_type": "installer_spec"
+    },
+    {
+      "name": "dist/VEYRA/VEYRA.exe",
+      "file_size_bytes": 3004414,
+      "sha256": "43f416be927679feb97499815a2b87f44831f6cdf53a6a60f2fcfab745471742",
+      "artifact_type": "standalone_binary"
+    }
+  ]
+}

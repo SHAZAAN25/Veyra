@@ -1,0 +1,271 @@
+{
+  "manifest_version": "1.0.0",
+  "product": "VEYRA",
+  "status": "LOCKED",
+  "hash_algorithm": "SHA-256",
+  "policy": "The artwork must not be redrawn, recreated, traced, vectorized into a different design, recolored, reshaped, distorted, cropped, stretched, filtered, tinted, glowed, blurred, or replaced.",
+  "assets": [
+    {
+      "asset_path": "assets/branding/normal/README.txt",
+      "file_name": "README.txt",
+      "mode": "normal",
+      "file_type": "txt",
+      "file_size_bytes": 442,
+      "dimensions": null,
+      "asset_purpose": "Documentation and asset guidelines",
+      "sha256": "4e09f96dd6c608f6827b76c154e9a577e7a17075ca226ae44b4dd2d62a476622"
+    },
+    {
+      "asset_path": "assets/branding/normal/VEYRA_Normal_Icon.ico",
+      "file_name": "VEYRA_Normal_Icon.ico",
+      "mode": "normal",
+      "file_type": "ico",
+      "file_size_bytes": 103394,
+      "dimensions": null,
+      "asset_purpose": "Normal Mode Windows executable and tray icon",
+      "sha256": "3bb250ef54a01c70ce02cff166c119f3bfe8718f27c33793bd9fa433b01c7233"
+    },
+    {
+      "asset_path": "assets/branding/normal/VEYRA_Normal_Logo_1024x1024.png",
+      "file_name": "VEYRA_Normal_Logo_1024x1024.png",
+      "mode": "normal",
+      "file_type": "png",
+      "file_size_bytes": 1039961,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "asset_purpose": "Normal Mode high-resolution display artwork",
+      "sha256": "d29755d827b590e4a1572ba66384f02c20745859cc4a440295052a8f7f159d6d"
+    },
+    {
+      "asset_path": "assets/branding/normal/VEYRA_Normal_Logo_128x128.png",
+      "file_name": "VEYRA_Normal_Logo_128x128.png",
+      "mode": "normal",
+      "file_type": "png",
+      "file_size_bytes": 19138,
+      "dimensions": [
+        128,
+        128
+      ],
+      "asset_purpose": "Normal Mode standard UI header artwork",
+      "sha256": "a4dd6fcde514fee0401d385896d62b7a848aa8a8a20ddc8aa77389bb064daacd"
+    },
+    {
+      "asset_path": "assets/branding/normal/VEYRA_Normal_Logo_256x256.png",
+      "file_name": "VEYRA_Normal_Logo_256x256.png",
+      "mode": "normal",
+      "file_type": "png",
+      "file_size_bytes": 66193,
+      "dimensions": [
+        256,
+        256
+      ],
+      "asset_purpose": "Normal Mode medium-large display artwork",
+      "sha256": "58e765fd3ec4d4e6b5e650ba611efdbcff00dbae2b1a7e4451a62d7d4c371914"
+    },
+    {
+      "asset_path": "assets/branding/normal/VEYRA_Normal_Logo_32x32.png",
+      "file_name": "VEYRA_Normal_Logo_32x32.png",
+      "mode": "normal",
+      "file_type": "png",
+      "file_size_bytes": 2027,
+      "dimensions": [
+        32,
+        32
+      ],
+      "asset_purpose": "Normal Mode small UI/status icon artwork",
+      "sha256": "9a0559a8605ab9a8ae5654f978e1e6b3eb10da30360f06fde7f9c59be537b4ba"
+    },
+    {
+      "asset_path": "assets/branding/normal/VEYRA_Normal_Logo_512x512.png",
+      "file_name": "VEYRA_Normal_Logo_512x512.png",
+      "mode": "normal",
+      "file_type": "png",
+      "file_size_bytes": 264207,
+      "dimensions": [
+        512,
+        512
+      ],
+      "asset_purpose": "Normal Mode large display artwork",
+      "sha256": "43ef7e32d46a20d6570c368af23fe6254c34f8481a6c144f5ba9ad01643c433c"
+    },
+    {
+      "asset_path": "assets/branding/normal/VEYRA_Normal_Logo_64x64.png",
+      "file_name": "VEYRA_Normal_Logo_64x64.png",
+      "mode": "normal",
+      "file_type": "png",
+      "file_size_bytes": 6171,
+      "dimensions": [
+        64,
+        64
+      ],
+      "asset_purpose": "Normal Mode compact UI icon artwork",
+      "sha256": "72e39d7a3a810389a0adfcb4f4ef425d08b657f3d589cee5b107e2f6137b6940"
+    },
+    {
+      "asset_path": "assets/branding/normal/VEYRA_Normal_Logo_EXACT.png",
+      "file_name": "VEYRA_Normal_Logo_EXACT.png",
+      "mode": "normal",
+      "file_type": "png",
+      "file_size_bytes": 1422407,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "asset_purpose": "Normal Mode locked master raster artwork",
+      "sha256": "d8de9387ae1d62c7b6f3665b7d684339d6a6dc0b32129aedd7f9d7a4e7218d96"
+    },
+    {
+      "asset_path": "assets/branding/normal/VEYRA_Normal_Logo_EXACT.svg",
+      "file_name": "VEYRA_Normal_Logo_EXACT.svg",
+      "mode": "normal",
+      "file_type": "svg",
+      "file_size_bytes": 1896985,
+      "dimensions": null,
+      "asset_purpose": "Normal Mode locked exact vector container",
+      "sha256": "a905d9fe5ec3b73f61cf89fdb8658859621867d69c5e5cb007b27e47c5520862"
+    },
+    {
+      "asset_path": "assets/branding/normal/VEYRA_Normal_Logo_SPEC.json",
+      "file_name": "VEYRA_Normal_Logo_SPEC.json",
+      "mode": "normal",
+      "file_type": "json",
+      "file_size_bytes": 466,
+      "dimensions": null,
+      "asset_purpose": "Normal Mode brand specification metadata",
+      "sha256": "cd2c7293c26662e9d3bfd846e76f7076ca3004a5b7a8926f0de5774e0b366024"
+    },
+    {
+      "asset_path": "assets/branding/gaming/README.txt",
+      "file_name": "README.txt",
+      "mode": "gaming",
+      "file_type": "txt",
+      "file_size_bytes": 694,
+      "dimensions": null,
+      "asset_purpose": "Documentation and asset guidelines",
+      "sha256": "247ceb66e0cb8bc730c193fe4610d57d4d530288b90d4c6ba833c2878be8baee"
+    },
+    {
+      "asset_path": "assets/branding/gaming/VEYRA_Gaming_Icon.ico",
+      "file_name": "VEYRA_Gaming_Icon.ico",
+      "mode": "gaming",
+      "file_type": "ico",
+      "file_size_bytes": 108809,
+      "dimensions": null,
+      "asset_purpose": "Gaming Mode Windows executable and tray icon",
+      "sha256": "f3aeb3e98f6686d0b10d4a1bc2db9e20c434d1b1b1e1bf4d59de3c127f5f64ca"
+    },
+    {
+      "asset_path": "assets/branding/gaming/VEYRA_Gaming_Logo_1024x1024.png",
+      "file_name": "VEYRA_Gaming_Logo_1024x1024.png",
+      "mode": "gaming",
+      "file_type": "png",
+      "file_size_bytes": 1102010,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "asset_purpose": "Gaming Mode high-resolution display artwork",
+      "sha256": "59ff8d62cf675ad8f6f0513dfeb804c291d6a263ca3839575638015c46ed1aed"
+    },
+    {
+      "asset_path": "assets/branding/gaming/VEYRA_Gaming_Logo_128x128.png",
+      "file_name": "VEYRA_Gaming_Logo_128x128.png",
+      "mode": "gaming",
+      "file_type": "png",
+      "file_size_bytes": 19835,
+      "dimensions": [
+        128,
+        128
+      ],
+      "asset_purpose": "Gaming Mode standard UI header artwork",
+      "sha256": "1eda5cc533086b3bf3b1aadabf82f9aacc70cb2e1912667363952d8d2765d45f"
+    },
+    {
+      "asset_path": "assets/branding/gaming/VEYRA_Gaming_Logo_256x256.png",
+      "file_name": "VEYRA_Gaming_Logo_256x256.png",
+      "mode": "gaming",
+      "file_type": "png",
+      "file_size_bytes": 70489,
+      "dimensions": [
+        256,
+        256
+      ],
+      "asset_purpose": "Gaming Mode medium-large display artwork",
+      "sha256": "5631e011a258b2eecfd278fc49861c28fff7c86cab5eef4587c3d923cb7c5455"
+    },
+    {
+      "asset_path": "assets/branding/gaming/VEYRA_Gaming_Logo_32x32.png",
+      "file_name": "VEYRA_Gaming_Logo_32x32.png",
+      "mode": "gaming",
+      "file_type": "png",
+      "file_size_bytes": 1998,
+      "dimensions": [
+        32,
+        32
+      ],
+      "asset_purpose": "Gaming Mode small UI/status icon artwork",
+      "sha256": "372cde55e5f91e208cd4e94126f60a16f86889fa95d77dde898fa58787adc337"
+    },
+    {
+      "asset_path": "assets/branding/gaming/VEYRA_Gaming_Logo_512x512.png",
+      "file_name": "VEYRA_Gaming_Logo_512x512.png",
+      "mode": "gaming",
+      "file_type": "png",
+      "file_size_bytes": 278640,
+      "dimensions": [
+        512,
+        512
+      ],
+      "asset_purpose": "Gaming Mode large display artwork",
+      "sha256": "856e34336128e466331b9a7957379dc71cd7d0496adf90d675bc0385ab68a511"
+    },
+    {
+      "asset_path": "assets/branding/gaming/VEYRA_Gaming_Logo_64x64.png",
+      "file_name": "VEYRA_Gaming_Logo_64x64.png",
+      "mode": "gaming",
+      "file_type": "png",
+      "file_size_bytes": 6183,
+      "dimensions": [
+        64,
+        64
+      ],
+      "asset_purpose": "Gaming Mode compact UI icon artwork",
+      "sha256": "9523ef16e3e05be62516f77c53a9ac4c98f738626dec3bcb7234b7561229a602"
+    },
+    {
+      "asset_path": "assets/branding/gaming/VEYRA_Gaming_Logo_EXACT.png",
+      "file_name": "VEYRA_Gaming_Logo_EXACT.png",
+      "mode": "gaming",
+      "file_type": "png",
+      "file_size_bytes": 1509518,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "asset_purpose": "Gaming Mode locked master raster artwork",
+      "sha256": "8d764ce5c3a55a1f1dc1369796d7f798cc3db3782ca6f61a93a18f97690e288b"
+    },
+    {
+      "asset_path": "assets/branding/gaming/VEYRA_Gaming_Logo_EXACT.svg",
+      "file_name": "VEYRA_Gaming_Logo_EXACT.svg",
+      "mode": "gaming",
+      "file_type": "svg",
+      "file_size_bytes": 2013136,
+      "dimensions": null,
+      "asset_purpose": "Gaming Mode locked exact vector container",
+      "sha256": "2bd76e30e2cf0ddf84cf46830f6811eb8b973b6f7f5ba3e516711b799abb7eb3"
+    },
+    {
+      "asset_path": "assets/branding/gaming/VEYRA_Gaming_Logo_SPEC.json",
+      "file_name": "VEYRA_Gaming_Logo_SPEC.json",
+      "mode": "gaming",
+      "file_type": "json",
+      "file_size_bytes": 541,
+      "dimensions": null,
+      "asset_purpose": "Gaming Mode brand specification metadata",
+      "sha256": "9a436bc024dc0a6da0a7f7881a240205048a97f2e8ffc761da6f9dabc05d2cac"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "product": "VEYRA",
+  "mode": "Gaming",
+  "logo_status": "LOCKED",
+  "master_asset": "VEYRA_Gaming_Logo_EXACT.png",
+  "master_dimensions": [
+    1254,
+    1254
+  ],
+  "source_policy": "Do not redraw, recolor, reshape, crop, or reinterpret the master logo.",
+  "theme": "Crimson",
+  "usage": [
+    "Gaming Mode application branding",
+    "Gaming Mode UI",
+    "Gaming Mode desktop/app identity",
+    "Gaming Mode iconography"
+  ],
+  "important": "The cyan Normal Mode logo and crimson Gaming Mode logo are separate locked brand states."
+}

@@ -1,0 +1,16 @@
+# VEYRA Core Dependencies
+# Stage 0: Pure standard library foundation (Zero required external dependencies)
+# Future stage production dependencies (strictly scoped and disciplined):
+
+# Strict typing and schema validation (Stage 1+)
+# pydantic>=2.6.0
+
+# Asynchronous HTTP and REST client/server (Stage 2/4)
+# fastapi>=0.110.0
+# uvicorn>=0.28.0
+
+# Windows System Telemetry and Hardware metrics (Stage 1)
+psutil>=5.9.8
+
+# Testing & Linting (Development environment)
+# pytest>=8.0.0

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =====================================================================
+     VEYRA MSIX AppxManifest
+     Stage 8 Packaging, Deployment & Windows Release Engineering
+     ===================================================================== -->
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap rescap">
+
+  <Identity
+    Name="VEYRA.Desktop"
+    Publisher="CN=VEYRA-Team, O=VEYRA, L=Local, S=Local, C=US"
+    Version="0.1.0.0"
+    ProcessorArchitecture="x64" />
+
+  <Properties>
+    <DisplayName>VEYRA</DisplayName>
+    <PublisherDisplayName>VEYRA Team</PublisherDisplayName>
+    <Logo>assets\branding\normal\VEYRA_Normal_Logo_128x128.png</Logo>
+    <Description>Local-First PC Observability, Network Diagnostics &amp; Incident Intelligence Platform</Description>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26100.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+
+  <Applications>
+    <Application Id="VEYRA" Executable="VEYRA.exe" EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements
+        DisplayName="VEYRA"
+        Description="PC Observability &amp; Incident Intelligence"
+        BackgroundColor="#0b0f19"
+        Square150x150Logo="assets\branding\normal\VEYRA_Normal_Logo_256x256.png"
+        Square44x44Logo="assets\branding\normal\VEYRA_Normal_Logo_64x64.png">
+        <uap:DefaultTile ShortName="VEYRA" Wide310x150Logo="assets\branding\normal\VEYRA_Normal_Logo_256x256.png" />
+        <uap:SplashScreen Image="assets\branding\normal\VEYRA_Normal_Logo_512x512.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <!-- Minimal required capability for desktop applications with local-first system telemetry -->
+    <rescap:Capability Name="runFullTrust" />
+  </Capabilities>
+</Package>

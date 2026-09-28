@@ -1,0 +1,1 @@
+"""VEYRA Metric Aggregation Package."""
