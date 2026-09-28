@@ -248,7 +248,7 @@ veyra/
 ├── run_veyra.bat         # Portable one-command application launcher
 ├── run.py                # Source entrypoint and foundation verification
 ├── requirements.txt      # Disciplined runtime dependencies
-├── brain.md              # Authoritative persistent engineering memory
+├── CONTRIBUTING.md          # Contributor guidelines and workflow
 └── ARCHITECTURE.md       # Core architecture specification
 ```
 
@@ -266,7 +266,7 @@ veyra/
 | **[docs/RELEASE.md](docs/RELEASE.md)** | Release engineering, versioning, build pipeline, and QA checklists. |
 | **[PROJECT_RULES.md](PROJECT_RULES.md)** | Non-negotiable engineering invariants (Rule 1: Truthfulness; Rule 9: Simulation Isolation). |
 | **[TEST_STRATEGY.md](TEST_STRATEGY.md)** | Automated test taxonomy, chaos simulation, and soak test architecture. |
-| **[brain.md](brain.md)** | Persistent engineering memory tracking chronological design decisions. |
+| **[CONTRIBUTING.md](CONTRIBUTING.md)** | Contributor guidelines, development setup, and code review standards. |
 
 ---
 

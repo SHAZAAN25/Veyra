@@ -1,7 +1,7 @@
 # VEYRA — Non-Negotiable Project Engineering Rules
 
 > **Status:** ACTIVE & MANDATORY  
-> **Applicability:** All development stages, contributors, and AI engineering agents.
+> **Applicability:** All contributors, maintainers, and developers.
 
 ---
 
@@ -14,8 +14,8 @@ NEVER FABRICATE A MEASUREMENT. This is the permanent core engineering rule of VE
 ### Rule 2: Preserve Working Functionality
 Never break or regress existing, working functionality. Refactoring must be non-destructive and verified against existing regression tests.
 
-### Rule 3: Read brain.md Before Modifying Code
-Every engineering agent or contributor must read [brain.md](file:///D:/VEYRA/brain.md) before making modifications to any part of the repository. Context and previous decisions must be respected.
+### Rule 3: Read Architecture & Contributing Guidelines Before Modifying Code
+Every contributor must read [ARCHITECTURE.md](ARCHITECTURE.md) and [CONTRIBUTING.md](CONTRIBUTING.md) before making modifications to any part of the repository. Context and architectural invariants must be respected.
 
 ### Rule 4: Never Blindly Rewrite the Repository
 Do not blow away directories, reinstall frameworks, or replace foundational code simply to impose personal styling or alternative paradigms.
@@ -23,8 +23,8 @@ Do not blow away directories, reinstall frameworks, or replace foundational code
 ### Rule 5: Never Silently Change Frozen Architecture
 The system architecture (collectors -> analyzer -> storage -> API -> UI) is FROZEN. If an architectural change is believed to be necessary, you must STOP, document the proposal, risks, and rationale, and request explicit approval.
 
-### Rule 6: Every Stage Has Acceptance Criteria
-No stage may be declared complete until every single acceptance criterion is satisfied and verified.
+### Rule 6: Acceptance Criteria & Contract Verification
+No feature or subsystem may be committed until every single acceptance criterion is satisfied and verified against automated contracts.
 
 ### Rule 7: Every Stage Must Have Appropriate Tests
 Code without automated test coverage is incomplete. Every contract, parser, collector, and security boundary must have corresponding automated tests.
@@ -47,11 +47,11 @@ Structured logging must sanitize and redact authentication tokens, passwords, AP
 ### Rule 13: VEYRA is Local-First
 By default, all APIs, telemetry storage, and UI bindings bind strictly to `127.0.0.1`. Never default to `0.0.0.0`. VEYRA operates without mandatory cloud dependencies or unauthorized telemetry exfiltration.
 
-### Rule 14: Completed Stages Must Be Preserved
-Earlier stages are stable foundations. Future stages must build upon them, not overwrite them.
+### Rule 14: Verified Subsystems Must Be Preserved
+Core subsystems are stable foundations. Subsequent enhancements must build upon them, not overwrite them.
 
 ### Rule 15: Documentation Must Reflect Actual Implementation
 Do not document speculative or unimplemented features as existing. Documentation must accurately describe current reality and frozen design contracts.
 
 ### Rule 16: Locked Branding Assets Must Remain Immutable
-The official VEYRA branding artwork in [assets/branding](file:///D:/VEYRA/assets/branding) is locked and verified by SHA-256 integrity checks. Artwork must never be redrawn, vectorized into alternative designs, recolored, resized with distortion, or replaced. Normal Mode uses the locked cyan artwork; Gaming Mode uses the locked crimson artwork.
+The official VEYRA branding artwork in [assets/branding](assets/branding) is locked and verified by SHA-256 integrity checks. Artwork must never be redrawn, vectorized into alternative designs, recolored, resized with distortion, or replaced. Normal Mode uses the locked cyan artwork; Gaming Mode uses the locked crimson artwork.

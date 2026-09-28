@@ -89,7 +89,7 @@ Dependencies flow strictly inward:
 ├── API_CONTRACT.md       # Localhost REST & WebSocket API specification
 ├── UI_DESIGN_SYSTEM.md   # Locked design system and palette tokens
 ├── TEST_STRATEGY.md      # Test pyramid and validation strategy
-├── brain.md              # Persistent engineering memory
+├── CONTRIBUTING.md          # Contributor guidelines and workflow
 └── .gitignore            # Git exclusions
 ```
 
