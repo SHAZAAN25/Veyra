@@ -21,8 +21,8 @@ from app.ui.screens.optimization import OptimizationScreen
 from app.ui.screens.ask_veyra import AskVeyraScreen
 from app.ui.screens.settings import SettingsScreen
 from storage.engine import StorageEngine
-from collectors.pipeline import CollectorPipeline
-from analyzers.incident_detector import IncidentDetector
+from collectors.coordinator import CollectionCoordinator
+from analyzer.engine import IntelligenceEngine
 
 
 
@@ -33,15 +33,19 @@ class VeyraDesktopApp:
         self,
         root: tk.Tk,
         storage: StorageEngine,
-        pipeline: Optional[CollectorPipeline] = None,
-        detector: Optional[IncidentDetector] = None,
+        coordinator: Optional[CollectionCoordinator] = None,
+        intelligence_engine: Optional[IntelligenceEngine] = None,
         theme_manager: Optional[ThemeManager] = None,
         state_manager: Optional[UiStateManager] = None,
+        pipeline: Optional[Any] = None,
+        detector: Optional[Any] = None,
     ):
         self.root = root
         self.storage = storage
-        self.pipeline = pipeline
-        self.detector = detector
+        self.coordinator = coordinator or pipeline
+        self.intelligence_engine = intelligence_engine or detector
+        self.pipeline = self.coordinator
+        self.detector = self.intelligence_engine
         self.theme_manager = theme_manager or ThemeManager()
         self.state_manager = state_manager or UiStateManager(self.storage)
 
@@ -114,13 +118,28 @@ class VeyraDesktopApp:
     def _poll_telemetry(self):
         """Non-blocking periodic update using root.after."""
         try:
-            # If collector pipeline is running locally in this process
-            if self.pipeline:
-                snap = self.pipeline.collect_snapshot()
-                assessment = None
-                if self.detector:
-                    assessment = self.detector.analyze(snap)
-                self.state_manager.update_telemetry(snap, assessment)
+            # If collector coordinator is running locally in this process
+            if self.coordinator:
+                if hasattr(self.coordinator, "run_cycle"):
+                    cycle = self.coordinator.run_cycle()
+                    primary_obs = cycle.get("cpu") or (next(iter(cycle.values())) if cycle else None)
+                    active_incidents = []
+                    recent_changes = []
+                    if self.intelligence_engine and hasattr(self.intelligence_engine, "process_cycle"):
+                        report = self.intelligence_engine.process_cycle(cycle)
+                        active_incidents = report.active_incidents
+                        recent_changes = report.recent_changes
+                    self.state_manager.update_telemetry(
+                        observation=primary_obs,
+                        active_incidents=active_incidents,
+                        recent_changes=recent_changes,
+                    )
+                elif hasattr(self.coordinator, "collect_snapshot"):
+                    snap = self.coordinator.collect_snapshot()
+                    assessment = None
+                    if self.intelligence_engine and hasattr(self.intelligence_engine, "analyze"):
+                        assessment = self.intelligence_engine.analyze(snap)
+                    self.state_manager.update_telemetry(snap, assessment)
 
             # Update active screen data
             active_screen = self.screens.get(self.current_screen_id)

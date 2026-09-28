@@ -9,8 +9,8 @@
   "artifacts": [
     {
       "name": "install.ps1",
-      "file_size_bytes": 5059,
-      "sha256": "69c169a279a33ae00b222138de9a5dae623ed6512765405ff3887d0f552161a1",
+      "file_size_bytes": 6527,
+      "sha256": "c3103076c6c882af4728dab234211d707f039d78b7b41f6b127b4013b2c58414",
       "artifact_type": "deployment_script"
     },
     {
@@ -39,14 +39,14 @@
     },
     {
       "name": "installer/veyra.spec",
-      "file_size_bytes": 2825,
-      "sha256": "ebd8cca6aae8b767b95f8a59604114e99055e72db1b39bd5e262eca568a5ab21",
+      "file_size_bytes": 2991,
+      "sha256": "4463cd01b880be3cc009c5a8213622f499ca5190f2d93127970273be2511e9e6",
       "artifact_type": "installer_spec"
     },
     {
       "name": "dist/VEYRA/VEYRA.exe",
-      "file_size_bytes": 3004414,
-      "sha256": "292706cf11f8186d6231e375f14ee422fc50c43079bd01e3dcd32fe361ba8608",
+      "file_size_bytes": 3005476,
+      "sha256": "bf1719898dbbe8b9b4713d3c0a48f210dfa351897035ebb5a4987a8ffa62cabe",
       "artifact_type": "standalone_binary"
     }
   ]

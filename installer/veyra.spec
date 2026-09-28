@@ -37,6 +37,8 @@ hiddenimports = [
     "app.core.supervisor",
     "app.core.time",
     "app.api.server",
+    "app.api.routes",
+    "app.api.auth",
     "app.ui.app",
     "app.ui.theme",
     "app.ui.state",

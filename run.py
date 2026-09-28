@@ -1,7 +1,7 @@
 """
 VEYRA Entry Point — Stage 4 Professional UI & Localhost API.
 Validates environment, branding integrity, initializes local SQLite storage,
-collector pipeline, incident detector, and launches either the Desktop GUI or headless daemon.
+collector coordinator, intelligence engine, and launches either the Desktop GUI or headless daemon.
 """
 import sys
 import argparse
@@ -18,8 +18,9 @@ from app.core.config import load_default_config
 from app.core.logging import get_logger
 from app.core.paths import get_default_db_path, is_frozen, ensure_app_data_dirs
 from storage.engine import StorageEngine
-from collectors.pipeline import CollectorPipeline
-from analyzers.incident_detector import IncidentDetector
+from collectors.coordinator import CollectionCoordinator
+from analyzer.engine import IntelligenceEngine
+from app.api.routes import ApiRouteDispatcher
 from app.api.server import LocalApiServer
 from app.ui.app import VeyraDesktopApp
 from app.ui.theme import ThemeManager
@@ -51,6 +52,7 @@ def main():
     # 2. Configuration & Security Boundary Verification
     try:
         config = load_default_config()
+        config.app.api_port = args.api_port
         logger.info("CONFIG_LOADED", f"Configuration verified. Local binding: 127.0.0.1:{args.api_port}")
         print(f"Configuration: VALID (Localhost binding: 127.0.0.1:{args.api_port})")
     except Exception as e:
@@ -68,16 +70,21 @@ def main():
         db_path = Path("data") / "veyra_local.db"
     db_path.parent.mkdir(parents=True, exist_ok=True)
     storage = StorageEngine(db_path)
-    pipeline = CollectorPipeline()
-    detector = IncidentDetector()
+    coordinator = CollectionCoordinator()
+    intelligence_engine = IntelligenceEngine()
+    theme_mgr = ThemeManager()
+    state_mgr = UiStateManager(storage)
 
     # 4. Launch Localhost API Server (Daemon)
-    api_server = LocalApiServer(
+    dispatcher = ApiRouteDispatcher(
+        config=config,
         storage=storage,
-        pipeline=pipeline,
-        detector=detector,
-        host="127.0.0.1",
-        port=args.api_port
+        latest_observation_fn=lambda: state_mgr.latest_observation,
+        latest_assessment_fn=lambda: state_mgr.latest_assessment
+    )
+    api_server = LocalApiServer(
+        config=config,
+        dispatcher=dispatcher
     )
     api_server.start()
     print(f"Localhost API: Active at http://127.0.0.1:{args.api_port}/api/v1/status")
@@ -96,19 +103,22 @@ def main():
     # 5. Launch Tkinter Desktop Application
     try:
         root = tk.Tk()
-        theme_mgr = ThemeManager()
-        state_mgr = UiStateManager(storage)
 
         # Wire up initial telemetry sample
-        initial_snap = pipeline.collect_snapshot()
-        initial_assessment = detector.analyze(initial_snap)
-        state_mgr.update_telemetry(initial_snap, initial_assessment)
+        initial_cycle = coordinator.run_cycle()
+        initial_report = intelligence_engine.process_cycle(initial_cycle)
+        primary_obs = initial_cycle.get("cpu") or (next(iter(initial_cycle.values())) if initial_cycle else None)
+        state_mgr.update_telemetry(
+            observation=primary_obs,
+            active_incidents=initial_report.active_incidents,
+            recent_changes=initial_report.recent_changes
+        )
 
         app = VeyraDesktopApp(
             root=root,
             storage=storage,
-            pipeline=pipeline,
-            detector=detector,
+            coordinator=coordinator,
+            intelligence_engine=intelligence_engine,
             theme_manager=theme_mgr,
             state_manager=state_mgr
         )

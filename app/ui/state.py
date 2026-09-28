@@ -15,7 +15,8 @@ from app.core.time import now_utc_iso
 class UiStateManager:
     """Central reactive state repository feeding all UI views."""
 
-    def __init__(self):
+    def __init__(self, storage: Optional[Any] = None):
+        self.storage = storage
         self.latest_observation: Optional[Observation] = None
         self.latest_assessment: Optional[Assessment] = None
         self.active_incidents: List[DetailedIncident] = []
