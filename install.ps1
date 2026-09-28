@@ -76,20 +76,48 @@ $LogFile = "$AppDataDir\logs\install.log"
 $InstallDate = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
 "[$InstallDate] VEYRA v0.1.0 installed to $InstallDir" | Out-File -FilePath $LogFile -Append -Encoding utf8
 
-# 4. Create Windows Start Menu Shortcut
+# Ensure branding assets are available in $InstallDir\assets
+if (Test-Path "$PSScriptRoot\assets") {
+    Copy-Item -Path "$PSScriptRoot\assets" -Destination "$InstallDir\assets" -Recurse -Force
+} elseif (Test-Path "$InstallDir\_internal\assets") {
+    Copy-Item -Path "$InstallDir\_internal\assets" -Destination "$InstallDir\assets" -Recurse -Force
+}
+
+# 4. Create Windows Start Menu & Desktop Shortcuts
 if (-not $SkipShortcuts) {
-    Write-Host "[4/5] Creating Start Menu integration..." -ForegroundColor Green
-    $StartMenuPath = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\VEYRA.lnk"
+    Write-Host "[4/5] Creating Start Menu & Desktop shortcuts..." -ForegroundColor Green
     $WScriptShell = New-Object -ComObject WScript.Shell
+    $IconPath = "$InstallDir\assets\branding\normal\VEYRA_Normal_Icon.ico"
+    if (-not (Test-Path $IconPath) -and (Test-Path "$InstallDir\_internal\assets\branding\normal\VEYRA_Normal_Icon.ico")) {
+        $IconPath = "$InstallDir\_internal\assets\branding\normal\VEYRA_Normal_Icon.ico"
+    }
+
+    # Start Menu Shortcut
+    $StartMenuPath = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\VEYRA.lnk"
     $Shortcut = $WScriptShell.CreateShortcut($StartMenuPath)
     $Shortcut.TargetPath = "$InstallDir\VEYRA.exe"
     $Shortcut.WorkingDirectory = $InstallDir
     $Shortcut.Description = "VEYRA -- PC Observability & Incident Intelligence"
-    $IconPath = "$InstallDir\assets\branding\normal\VEYRA_Normal_Icon.ico"
     if (Test-Path $IconPath) {
         $Shortcut.IconLocation = "$IconPath,0"
+    } else {
+        $Shortcut.IconLocation = "$InstallDir\VEYRA.exe,0"
     }
     $Shortcut.Save()
+
+    # Desktop Shortcut
+    $DesktopPath = "$([Environment]::GetFolderPath('Desktop'))\VEYRA.lnk"
+    $DesktopShortcut = $WScriptShell.CreateShortcut($DesktopPath)
+    $DesktopShortcut.TargetPath = "$InstallDir\VEYRA.exe"
+    $DesktopShortcut.WorkingDirectory = $InstallDir
+    $DesktopShortcut.Description = "VEYRA -- PC Observability & Incident Intelligence"
+    if (Test-Path $IconPath) {
+        $DesktopShortcut.IconLocation = "$IconPath,0"
+    } else {
+        $DesktopShortcut.IconLocation = "$InstallDir\VEYRA.exe,0"
+    }
+    $DesktopShortcut.Save()
+    Write-Host "Created Desktop shortcut: $DesktopPath" -ForegroundColor Green
 }
 
 # 5. Register with Windows Add/Remove Programs (HKCU)
