@@ -23,9 +23,14 @@
 Most monitoring software presents isolated, disconnected graphs: Windows Task Manager shows CPU, Discord displays ping, and GPU utilities display temperatures. When lag spikes or frame drops occur, users are left guessing which layer failed.
 
 VEYRA establishes an unbroken, unidirectional evidentiary pipeline:
+
+<div align="center">
+
 ```
-Measurement ──► Observation ──► Assessment ──► Incident ──► Historical Record ──► Explanation ──► Action ──► Verification
+Measurement  -->  Observation  -->  Assessment  -->  Incident  -->  Historical Record  -->  Explanation  -->  Action  -->  Verification
 ```
+
+</div>
 
 ---
 
@@ -74,47 +79,19 @@ All capabilities documented below are fully implemented in the codebase:
 
 VEYRA follows a unidirectional data flow where presentation layers never own monitoring or storage logic:
 
-```mermaid
-graph TD
-    subgraph Data_Collection [Hardware & Network Layer]
-        HW[Windows OS / Hardware Counters / NDIS / Sockets]
-        COLL[Hardware Collectors: collectors/]
-    end
-
-    subgraph Core_Engine [Analysis & Storage Layer]
-        COORD[MeasurementCoordinator]
-        ANALYZER[TelemetryAnalyzer / Incident Detector]
-        CORR[Root Cause Correlation Graph]
-        RAM[Volatile Ring Buffer: 1 Hz Samples]
-        DB[(history.sqlite: Compact 5-Min Rollups)]
-    end
-
-    subgraph Security_IPC [Security & Control Boundary]
-        API[Localhost API: 127.0.0.1]
-        HELPER[PrivilegedHelper Daemon: requireAdministrator]
-    end
-
-    subgraph UI_Layer [Native Presentation]
-        UI[Desktop UI: Normal Cyan / Gaming Crimson]
-    end
-
-    HW --> COLL
-    COLL --> COORD
-    COORD --> ANALYZER
-    COORD --> RAM
-    ANALYZER --> CORR
-    CORR --> DB
-    RAM -->|Compactor: 5 Min| DB
-    DB --> API
-    API --> UI
-    UI -.->|Optimization Request + Nonce| HELPER
-    HELPER -.->|Apply / Rollback System Change| HW
-```
+<div align="center">
+  <img src="docs/images/architecture_flow.svg" alt="VEYRA System Architecture Flow" width="900"/>
+</div>
 
 For optimization workflows:
+
+<div align="center">
+
 ```
-Measurement ──► Evidence ──► Candidate ──► Snapshot (HMAC) ──► User Approval ──► PrivilegedHelper ──► Apply ──► Verify ──► Auto-Rollback (if degraded)
+Measurement  -->  Evidence  -->  Candidate  -->  Snapshot (HMAC)  -->  Approval  -->  PrivilegedHelper  -->  Apply  -->  Verify  -->  Auto-Rollback
 ```
+
+</div>
 
 ---
 

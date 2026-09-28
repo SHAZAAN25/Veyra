@@ -46,7 +46,7 @@
     {
       "name": "dist/VEYRA/VEYRA.exe",
       "file_size_bytes": 3004414,
-      "sha256": "43f416be927679feb97499815a2b87f44831f6cdf53a6a60f2fcfab745471742",
+      "sha256": "292706cf11f8186d6231e375f14ee422fc50c43079bd01e3dcd32fe361ba8608",
       "artifact_type": "standalone_binary"
     }
   ]

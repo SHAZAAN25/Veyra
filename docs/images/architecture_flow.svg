@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 620" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="100%" stop-color="#070a10" />
+    </linearGradient>
+    <linearGradient id="boxGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141c2b" />
+      <stop offset="100%" stop-color="#0f1624" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#00e5ff" />
+    </marker>
+    <marker id="arrow-crimson" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#ff1744" />
+    </marker>
+  </defs>
+
+  <style>
+    .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 700; fill: #ffffff; letter-spacing: 0.5px; }
+    .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 500; fill: #8892b0; }
+    .node-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 600; fill: #e2e8f0; }
+    .node-desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 10.5px; fill: #94a3b8; }
+    .badge { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 9.5px; font-weight: 700; text-anchor: middle; }
+  </style>
+
+  <!-- Outer Canvas Container -->
+  <rect x="2" y="2" width="916" height="616" rx="14" fill="url(#bgGrad)" stroke="#1e293b" stroke-width="1.5" filter="url(#shadow)" />
+
+  <!-- ==================== LAYER 1: HARDWARE & COLLECTION ==================== -->
+  <rect x="30" y="24" width="860" height="110" rx="10" fill="#0d1424" stroke="#1e293b" stroke-width="1" />
+  <text x="50" y="46" class="title">1. HARDWARE &amp; TELEMETRY COLLECTION LAYER</text>
+  <text x="50" y="60" class="subtitle">Real Windows Kernel APIs, NDIS Miniport, and Physical Sensor Counters (No Synthetic Fallbacks)</text>
+
+  <!-- OS Counters Box -->
+  <rect x="50" y="72" width="370" height="48" rx="6" fill="url(#boxGrad)" stroke="#2d3748" stroke-width="1" />
+  <text x="66" y="93" class="node-title">Windows OS &amp; Physical Sensors</text>
+  <text x="66" y="108" class="node-desc">psutil / WMI / DXGI / NDIS netsh / Native Sockets</text>
+
+  <!-- Collectors Box -->
+  <rect x="500" y="72" width="370" height="48" rx="6" fill="url(#boxGrad)" stroke="#00e5ff" stroke-width="1.2" />
+  <text x="516" y="93" class="node-title">Hardware Telemetry Collectors</text>
+  <text x="516" y="108" class="node-desc">collectors/ (CPU, RAM, Disks, GPU, Ping, Wi-Fi NDIS)</text>
+
+  <!-- Connection: HW -> Collectors -->
+  <path d="M 420 96 L 494 96" fill="none" stroke="#00e5ff" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- Connection: Layer 1 -> Layer 2 -->
+  <path d="M 685 120 L 685 158" fill="none" stroke="#00e5ff" stroke-width="1.8" marker-end="url(#arrow)" />
+  <rect x="635" y="132" width="100" height="18" rx="4" fill="#0b0f19" stroke="#1e293b" stroke-width="1" />
+  <text x="685" y="145" class="badge" fill="#00e5ff">Validated Contract</text>
+
+  <!-- ==================== LAYER 2: CORE ENGINE & STORAGE ==================== -->
+  <rect x="30" y="162" width="860" height="175" rx="10" fill="#0d1424" stroke="#1e293b" stroke-width="1" />
+  <text x="50" y="184" class="title">2. CORE ANALYSIS &amp; HISTORICAL STORAGE ENGINE</text>
+  <text x="50" y="198" class="subtitle">Unidirectional Observation Processing, Deterministic Baselines &amp; Rollup Compaction</text>
+
+  <!-- Measurement Coordinator -->
+  <rect x="500" y="210" width="370" height="44" rx="6" fill="url(#boxGrad)" stroke="#00e5ff" stroke-width="1" />
+  <text x="516" y="229" class="node-title">MeasurementCoordinator</text>
+  <text x="516" y="244" class="node-desc">Monotonic Interval Clock &amp; Invariant Validation</text>
+
+  <!-- Analyzer & Incident Detector -->
+  <rect x="50" y="210" width="370" height="44" rx="6" fill="url(#boxGrad)" stroke="#2d3748" stroke-width="1" />
+  <text x="66" y="229" class="node-title">TelemetryAnalyzer &amp; Incident Engine</text>
+  <text x="66" y="244" class="node-desc">Thresholds / Dynamic P95-P99 Deviation Tracking</text>
+
+  <!-- Root Cause Graph -->
+  <rect x="50" y="274" width="370" height="44" rx="6" fill="url(#boxGrad)" stroke="#2d3748" stroke-width="1" />
+  <text x="66" y="293" class="node-title">Root Cause Correlation Graph</text>
+  <text x="66" y="308" class="node-desc">Cross-Layer Topology &amp; Evidence Packages</text>
+
+  <!-- Storage: Volatile RAM & SQLite -->
+  <rect x="500" y="274" width="175" height="44" rx="6" fill="url(#boxGrad)" stroke="#2d3748" stroke-width="1" />
+  <text x="512" y="293" class="node-title">Ring Buffer</text>
+  <text x="512" y="308" class="node-desc">1 Hz Volatile RAM</text>
+
+  <rect x="695" y="274" width="175" height="44" rx="6" fill="url(#boxGrad)" stroke="#00e5ff" stroke-width="1" />
+  <text x="707" y="293" class="node-title">SQLite WAL</text>
+  <text x="707" y="308" class="node-desc">Compact Rollups</text>
+
+  <!-- Connection: Coordinator -> Analyzer -->
+  <path d="M 500 232 L 426 232" fill="none" stroke="#00e5ff" stroke-width="1.8" marker-end="url(#arrow)" />
+  <!-- Connection: Coordinator -> RAM Buffer -->
+  <path d="M 685 254 L 685 264 L 587 264 L 587 268" fill="none" stroke="#00e5ff" stroke-width="1.8" marker-end="url(#arrow)" />
+  <!-- Connection: Analyzer -> Root Cause -->
+  <path d="M 235 254 L 235 268" fill="none" stroke="#00e5ff" stroke-width="1.8" marker-end="url(#arrow)" />
+  <!-- Connection: RAM -> SQLite Compaction -->
+  <path d="M 675 296 L 689 296" fill="none" stroke="#00e5ff" stroke-width="1.8" marker-end="url(#arrow)" />
+  <!-- Connection: Root Cause -> SQLite -->
+  <path d="M 420 296 L 689 296" fill="none" stroke="#00e5ff" stroke-width="1.8" stroke-dasharray="3,3" />
+
+  <!-- Connection: Layer 2 -> Layer 3 -->
+  <path d="M 782 318 L 782 368" fill="none" stroke="#00e5ff" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- ==================== LAYER 3: SECURITY & API BOUNDARY ==================== -->
+  <rect x="30" y="374" width="860" height="96" rx="10" fill="#0d1424" stroke="#1e293b" stroke-width="1" />
+  <text x="50" y="396" class="title">3. SECURITY &amp; LEAST-PRIVILEGE CONTROL BOUNDARY</text>
+  <text x="50" y="410" class="subtitle">Strict Localhost-Only REST/WebSocket API &amp; Isolated UAC Elevation Helper</text>
+
+  <!-- Localhost API -->
+  <rect x="500" y="418" width="370" height="42" rx="6" fill="url(#boxGrad)" stroke="#00e5ff" stroke-width="1" />
+  <text x="516" y="436" class="node-title">Localhost API (127.0.0.1:49152+)</text>
+  <text x="516" y="450" class="node-desc">Token Auth / Rate Limiting / Zero External Exposure</text>
+
+  <!-- Privileged Helper -->
+  <rect x="50" y="418" width="370" height="42" rx="6" fill="url(#boxGrad)" stroke="#ff1744" stroke-width="1.2" />
+  <text x="66" y="436" class="node-title">PrivilegedHelper Daemon (UAC Isolated)</text>
+  <text x="66" y="450" class="node-desc">Single-Use Nonce / PID Binding / Reversible Rollbacks</text>
+
+  <!-- Connection: Layer 3 -> Layer 4 -->
+  <path d="M 685 460 L 685 498" fill="none" stroke="#00e5ff" stroke-width="1.8" marker-end="url(#arrow)" />
+
+  <!-- ==================== LAYER 4: PRESENTATION LAYER ==================== -->
+  <rect x="30" y="504" width="860" height="92" rx="10" fill="#0d1424" stroke="#1e293b" stroke-width="1" />
+  <text x="50" y="526" class="title">4. NATIVE USER PRESENTATION LAYER</text>
+  <text x="50" y="540" class="subtitle">Desktop UI (Pure Read-Only Observer; Never Executes Direct OS Modifying Commands)</text>
+
+  <!-- Normal Mode UI -->
+  <rect x="50" y="546" width="370" height="40" rx="6" fill="url(#boxGrad)" stroke="#00e5ff" stroke-width="1.2" />
+  <text x="66" y="564" class="node-title">Normal Mode (Cyan Palette)</text>
+  <text x="66" y="577" class="node-desc">Dashboard, Network, System, Incidents, Diagnostics</text>
+
+  <!-- Gaming Mode UI -->
+  <rect x="500" y="546" width="370" height="40" rx="6" fill="url(#boxGrad)" stroke="#ff1744" stroke-width="1.2" />
+  <text x="516" y="564" class="node-title">Gaming HUD Mode (Crimson Palette)</text>
+  <text x="516" y="577" class="node-desc">Match Session DNA, Stability Score &amp; Thermal Alerts</text>
+
+  <!-- Bidirectional Optimization & Rollback Flow -->
+  <path d="M 235 546 L 235 466" fill="none" stroke="#ff1744" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#arrow-crimson)" />
+  <rect x="145" y="492" width="180" height="18" rx="4" fill="#0b0f19" stroke="#ff1744" stroke-width="1" />
+  <text x="235" y="505" class="badge" fill="#ff1744">Signed Optimization / Rollback</text>
+</svg>
